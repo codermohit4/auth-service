@@ -7,8 +7,9 @@
   },
   "author": "",
   "license": "ISC",
-  "description": "", 
+  "description": "",
   "dependencies": {
+    "bcrypt": "^6.0.0",
     "body-parser": "^2.2.0",
     "dotenv": "^17.2.1",
     "express": "^5.1.0",

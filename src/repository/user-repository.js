@@ -2,7 +2,8 @@
 // Loads all your model files in the models folder.
 // Initializes Sequelize (sets up DB connection).
 // Exports all models in a single object.
-const {User} = require('../models/index')
+const {User} = require('../models/index');
+const user = require('../models/user');
 // const { User } = require('../models'); // works the same
 
 
@@ -31,6 +32,22 @@ class UserRepository {
     async getUser(email) {
         return await User.findOne({ where: { email: email } });
     }
+
+    async getById(userId){
+        try {
+        const user = await User.findByPk(userId,{
+            attributes: ['email','id',]
+            // for password use passwrod 
+        });
+        return user;
+
+    }
+    catch{
+    console.log("something went wrong on repository level");
+    throw error;
+        
+    }
 }
 
+}
 module.exports = UserRepository; // export class
